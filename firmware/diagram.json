@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "you",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -60, "left": 200, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr", "top": -150, "left": -280, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir", "top": -150, "left": -450, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 20, "left": -300, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay2", "top": 110, "left": -300, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay3", "top": 200, "left": -300, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:3V3", "dht:VCC", "red", [] ],
+    [ "esp:GND.1", "dht:GND", "black", [] ],
+    [ "dht:SDA", "esp:D4", "green", [] ],
+
+    [ "esp:3V3", "ldr:VCC", "red", [] ],
+    [ "esp:GND.1", "ldr:GND", "black", [] ],
+    [ "ldr:AO", "esp:D34", "orange", [] ],
+
+    [ "esp:3V3", "pir:VCC", "red", [] ],
+    [ "esp:GND.1", "pir:GND", "black", [] ],
+    [ "pir:OUT", "esp:D27", "blue", [] ],
+
+    [ "esp:3V3", "relay1:VCC", "red", [] ],
+    [ "esp:GND.1", "relay1:GND", "black", [] ],
+    [ "relay1:IN", "esp:D25", "green", [] ],
+
+    [ "esp:3V3", "relay2:VCC", "red", [] ],
+    [ "esp:GND.1", "relay2:GND", "black", [] ],
+    [ "relay2:IN", "esp:D26", "green", [] ],
+
+    [ "esp:3V3", "relay3:VCC", "red", [] ],
+    [ "esp:GND.1", "relay3:GND", "black", [] ],
+    [ "relay3:IN", "esp:D33", "green", [] ]
+  ],
+  "dependencies": {}
+}
